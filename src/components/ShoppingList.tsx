@@ -11,7 +11,7 @@ const ShoppingList = () => {
   sortedList.sort();
 
   const shoppingListItems = sortedList.map((item) => (
-    <li key={item}>
+    <li key={item} className="h4">
       <Form.Check type={"checkbox"} label={item} />
     </li>
   ));
