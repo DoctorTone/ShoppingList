@@ -1,5 +1,8 @@
 import { useStore } from "../state/store";
 import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 const ShoppingList = () => {
   const shoppingItems = useStore((state) => state.shoppingItems);
@@ -16,7 +19,27 @@ const ShoppingList = () => {
     </li>
   ));
 
-  return <ul>{shoppingListItems}</ul>;
+  const addItem = () => {};
+
+  return (
+    <>
+      <Form onSubmit={addItem} className="mb-3">
+        <Row>
+          <Col xs={6}>
+            <Form.Control type="text" />
+          </Col>
+          <Col xs={4}>
+            <Button type="submit" variant="primary">
+              Add
+            </Button>
+          </Col>
+        </Row>
+      </Form>
+      <Row>
+        <ul>{shoppingListItems}</ul>
+      </Row>
+    </>
+  );
 };
 
 export default ShoppingList;
