@@ -26,7 +26,7 @@ const ShoppingList = () => {
       <Form onSubmit={addItem} className="mb-3">
         <Row>
           <Col xs={6}>
-            <Form.Control type="text" />
+            <Form.Control name="item" type="text" />
           </Col>
           <Col xs={4}>
             <Button type="submit" variant="primary">
