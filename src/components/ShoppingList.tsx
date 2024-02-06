@@ -9,8 +9,6 @@ import { FormEvent } from 'react';
 const ShoppingList = () => {
   const itemRef = useRef<HTMLInputElement | null>(null);
   const shoppingItems = useStore((state) => state.shoppingItems);
-  // DEBUG
-  console.log('Items = ', shoppingItems);
   const addItem = useStore((state) => state.addItem);
   const updateItem = useStore((state) => state.updateItem);
   const sortedList = shoppingItems.map((shoppingItem) => {
