@@ -1,16 +1,16 @@
-import { useRef } from "react";
-import { useStore } from "../state/store";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import { FormEvent } from "react";
+import { useRef } from 'react';
+import { useStore } from '../state/store';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import { FormEvent } from 'react';
 
 const ShoppingList = () => {
   const itemRef = useRef<HTMLInputElement | null>(null);
   const shoppingItems = useStore((state) => state.shoppingItems);
   // DEBUG
-  console.log("Items = ", shoppingItems);
+  console.log('Items = ', shoppingItems);
   const addItem = useStore((state) => state.addItem);
   const updateItem = useStore((state) => state.updateItem);
   const sortedList = shoppingItems.map((shoppingItem) => {
@@ -37,13 +37,11 @@ const ShoppingList = () => {
   });
 
   // Ensure no duplicates
-  const singleList = sortedList.filter(
-    (elem, index) => sortedList.indexOf(elem) === index
-  );
+  const singleList = sortedList.filter((elem, index) => sortedList.indexOf(elem) === index);
 
   const tickItem = (event: React.ChangeEvent<HTMLInputElement>) => {
     // DEBUG
-    console.log("Ticked it", event.target.checked);
+    console.log('Ticked it', event.target.checked);
     updateItem(event.target.name, event.target.checked);
   };
 
@@ -52,7 +50,7 @@ const ShoppingList = () => {
       <Col xs={9}>
         <div key={elem.item} className="h4">
           <Form.Check
-            type={"checkbox"}
+            type={'checkbox'}
             label={elem.item}
             name={elem.item}
             onChange={tickItem}
@@ -70,7 +68,7 @@ const ShoppingList = () => {
   const updateList = (event: FormEvent) => {
     event.preventDefault();
 
-    console.log("Item = ", itemRef.current?.value);
+    console.log('Item = ', itemRef.current?.value);
     addItem(itemRef.current!.value);
   };
 
