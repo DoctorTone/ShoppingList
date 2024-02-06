@@ -38,8 +38,6 @@ const ShoppingList = () => {
   const singleList = sortedList.filter((elem, index) => sortedList.indexOf(elem) === index);
 
   const tickItem = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // DEBUG
-    console.log('Ticked it', event.target.checked);
     updateItem(event.target.name, event.target.checked);
   };
 
