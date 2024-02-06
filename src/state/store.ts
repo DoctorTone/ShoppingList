@@ -121,7 +121,7 @@ export const useStore = create<ShoppingStoreState>()(
           }));
         },
       }),
-      { name: 'shopStore_v0.9' },
+      { name: 'shopStore_v0.10' },
     ),
   ),
 );
