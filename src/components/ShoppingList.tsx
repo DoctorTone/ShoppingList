@@ -9,8 +9,6 @@ import { FormEvent } from 'react';
 const ShoppingList = () => {
   const itemRef = useRef<HTMLInputElement | null>(null);
   const shoppingItems = useStore((state) => state.shoppingItems);
-  // DEBUG
-  console.log('Items === ', shoppingItems);
   const addItem = useStore((state) => state.addItem);
   const updateItem = useStore((state) => state.updateItem);
   const sortedList = shoppingItems.map((shoppingItem) => {
@@ -40,8 +38,6 @@ const ShoppingList = () => {
   const singleList = sortedList.filter((elem, index) => sortedList.indexOf(elem) === index);
 
   const tickItem = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // DEBUG
-    console.log('Ticked it', event.target.checked);
     updateItem(event.target.name, event.target.checked);
   };
 
@@ -68,7 +64,6 @@ const ShoppingList = () => {
   const updateList = (event: FormEvent) => {
     event.preventDefault();
 
-    console.log('Item = ', itemRef.current?.value);
     addItem(itemRef.current!.value);
   };
 
