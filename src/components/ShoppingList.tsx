@@ -64,7 +64,6 @@ const ShoppingList = () => {
   const updateList = (event: FormEvent) => {
     event.preventDefault();
 
-    console.log('Item = ', itemRef.current?.value);
     addItem(itemRef.current!.value);
   };
 
